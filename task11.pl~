@@ -48,5 +48,6 @@ parent(duhovlad,zlatomir).
 parent(zhdana,zdislava).
 parent(zhdana,zlatomir).
 
+
 father(X,Y):- parent(X,Y),man(X).
 father(X):-parent(Y,X),man(Y),write(Y).
