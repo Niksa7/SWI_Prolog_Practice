@@ -48,6 +48,11 @@ parent(duhovlad,zlatomir).
 parent(zhdana,zdislava).
 parent(zhdana,zlatomir).
 
-
+%Task11
 father(X,Y):- parent(X,Y),man(X).
 father(X):-parent(Y,X),man(Y),write(Y).
+
+%Task12
+sister(X,Y):-woman(X),parent(Z,X),parent(Z,Y),man(Z),X\=Y,
+    woman(Y).
+sisters(X):-woman(X),parent(Z,X),man(Z),parent(Z,Y),woman(Y),X\=Y,write(Y),!.
