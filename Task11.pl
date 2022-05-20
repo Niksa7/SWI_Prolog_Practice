@@ -56,3 +56,7 @@ father(X):-parent(Y,X),man(Y),write(Y).
 sister(X,Y):-woman(X),parent(Z,X),parent(Z,Y),man(Z),X\=Y,
     woman(Y).
 sisters(X):-woman(X),parent(Z,X),man(Z),parent(Z,Y),woman(Y),X\=Y,write(Y).
+
+%Task13
+grand_ma(X,Y):-woman(X),parent(X,Z),parent(Z,Y).
+grand_mas(X):-parent(Z,X),parent(Y,Z),woman(Y),write(Y).
