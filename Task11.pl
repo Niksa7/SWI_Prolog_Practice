@@ -86,5 +86,16 @@ mult_of_digits_down(X,Sum,CurSum):- X1 is X mod 10, CurSum1 is CurSum*X1,
 %Task17
 %amount_of_odd_dig_bigger3(+X,-Count).
 amount_of_odd_dig_bigger3(0,0):-!.
-amount_of_odd_dig_bigger3(X,Count):-X1 is X div 10,X2 is X mod 10, amount_of_odd_dig_bigger3(X1,Count1),X2>3, 1 is  X2 mod 2, Count is Count1+1.
-amount_of_odd_dig_bigger3(X,Count):-X1 is X div 10,amount_of_odd_dig_bigger3(X1,Count).
+amount_of_odd_dig_bigger3(X,Count):-
+    X1 is X div 10, amount_of_odd_dig_bigger3(X1,Count1),
+    X2 is X mod 10, (X2>3, 1 is  X2 mod 2, Count is Count1+1; Count is Count1).
+
+%Task18
+%amount_of_odd_dig_bigger3_Down(+X,-Count).
+amount_of_odd_dig_bigger3_Down(X,Count):-
+    amount_of_odd_dig_bigger3_Down(X,Count,0).
+amount_of_odd_dig_bigger3_Down(0,Count,Count):-!.
+amount_of_odd_dig_bigger3_Down(X,Count,CurCount):-
+    (X2 is X mod 10, X2>3,1 is  X2 mod 2, CurCount1 is CurCount+1,
+    X1 is X div 10, amount_of_odd_dig_bigger3_Down(X1, Count, CurCount1), !);
+    (X3 is X div 10, amount_of_odd_dig_bigger3_Down(X3, Count, CurCount)).
