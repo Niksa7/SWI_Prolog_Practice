@@ -75,3 +75,10 @@ grand_ma_and_son(X,Y):-
 mult_of_digits(0,1):-!.
 mult_of_digits(X,Sum):-X1 is X div 10, mult_of_digits(X1,Sum1),
     X2 is X mod 10, Sum is X2*Sum1.
+
+%Task16
+%mult_of_digits_down(+X,-Sum)
+mult_of_digits_down(X,Sum):-mult_of_digits_down(X,Sum,1).
+mult_of_digits_down(0,Sum,Sum):-!.
+mult_of_digits_down(X,Sum,CurSum):- X1 is X mod 10, CurSum1 is CurSum*X1,
+    X2 is X div 10, mult_of_digits_down(X2,Sum,CurSum1).
