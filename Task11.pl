@@ -60,3 +60,13 @@ sisters(X):-woman(X),parent(Z,X),man(Z),parent(Z,Y),woman(Y),X\=Y,write(Y).
 %Task13
 grand_ma(X,Y):-woman(X),parent(X,Z),parent(Z,Y).
 grand_mas(X):-parent(Z,X),parent(Y,Z),woman(Y),write(Y).
+
+%Task14
+%1 option
+%grand_ma_and_son(X,Y):-woman(X),parent(X,Z),parent(Z,Y),man(Y),!.
+%grand_ma_and_son(X,Y):-man(X),parent(Z,X),parent(Y,Z),woman(Y),!.
+%2 option
+grand_ma_and_son(X,Y):-
+    woman(X),parent(X,Z),parent(Z,Y),man(Y),!;
+    man(X),parent(Z,X),parent(Y,Z),woman(Y),!.
+
