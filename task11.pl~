@@ -92,9 +92,16 @@ amount_of_odd_dig_bigger3(X,Count):-
 
 %Task18
 %amount_of_odd_dig_bigger3_Down(+X,-Count).
-amount_of_odd_dig_bigger3_Down(X,Count):-amount_of_odd_dig_bigger3_Down(X,Count,0).
+amount_of_odd_dig_bigger3_Down(X,Count):-
+    amount_of_odd_dig_bigger3_Down(X,Count,0).
 amount_of_odd_dig_bigger3_Down(0,Count,Count):-!.
 amount_of_odd_dig_bigger3_Down(X,Count,CurCount):-
     (X2 is X mod 10, X2>3,1 is  X2 mod 2, CurCount1 is CurCount+1,
     X1 is X div 10, amount_of_odd_dig_bigger3_Down(X1, Count, CurCount1), !);
     (X3 is X div 10, amount_of_odd_dig_bigger3_Down(X3, Count, CurCount)).
+
+%Task19
+%Fib_Up(+N,?X)
+fib_Up(1,1):-!.
+fib_Up(2,1):-!.
+fib_Up(N,X):-N1 is N-1, N2 is N-2, fib_Up(N1,X1), fib_Up(N2,X2), X is X1+X2.
