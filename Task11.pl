@@ -70,3 +70,8 @@ grand_ma_and_son(X,Y):-
     woman(X),parent(X,Z),parent(Z,Y),man(Y),!;
     man(X),parent(Z,X),parent(Y,Z),woman(Y),!.
 
+%Task15
+%mult_of_digits(+X,-Sum)
+mult_of_digits(0,1):-!.
+mult_of_digits(X,Sum):-X1 is X div 10, mult_of_digits(X1,Sum1),
+    X2 is X mod 10, Sum is X2*Sum1.
