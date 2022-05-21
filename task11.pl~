@@ -101,7 +101,13 @@ amount_of_odd_dig_bigger3_Down(X,Count,CurCount):-
     (X3 is X div 10, amount_of_odd_dig_bigger3_Down(X3, Count, CurCount)).
 
 %Task19
-%Fib_Up(+N,?X)
+%fib_Up(+N,?X)
 fib_Up(1,1):-!.
 fib_Up(2,1):-!.
 fib_Up(N,X):-N1 is N-1, N2 is N-2, fib_Up(N1,X1), fib_Up(N2,X2), X is X1+X2.
+
+%Task20
+%fib_Down(+N,?X)
+fib_Down(N,X):-fib_Down(N,X,1,0).
+fib_Down(1,X,X,_):-!.
+fib_Down(N,X,X1,X2):-XNext is X1+X2, N1 is N-1,fib_Down(N1,X,XNext,X1).
