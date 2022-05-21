@@ -82,3 +82,9 @@ mult_of_digits_down(X,Sum):-mult_of_digits_down(X,Sum,1).
 mult_of_digits_down(0,Sum,Sum):-!.
 mult_of_digits_down(X,Sum,CurSum):- X1 is X mod 10, CurSum1 is CurSum*X1,
     X2 is X div 10, mult_of_digits_down(X2,Sum,CurSum1).
+
+%Task17
+%amount_of_odd_dig_bigger3(+X,-Count).
+amount_of_odd_dig_bigger3(0,0):-!.
+amount_of_odd_dig_bigger3(X,Count):-X1 is X div 10,X2 is X mod 10, amount_of_odd_dig_bigger3(X1,Count1),X2>3, 1 is  X2 mod 2, Count is Count1+1.
+amount_of_odd_dig_bigger3(X,Count):-X1 is X div 10,amount_of_odd_dig_bigger3(X1,Count).
